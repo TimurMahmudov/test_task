@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ cat.title }}
+{% endblock  %}
+
+{% block content %}
+    <p>{{ cat.title }} - {{ cat.count_subs }}</p>
+{% endblock content %}

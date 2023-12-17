@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+{% load filter_active %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Главная{% endblock title %}</title>
+    <link rel="stylesheet" href="{% static "menu/style.css" %}">
+</head>
+<body>
+    <ul>
+        <li><a href="{% url "menu:index" %}">Главная</a></li>
+        {% enclosure_menu cat_id %}
+    </ul>
+    {% block content %}{% endblock content %}
+</body>
+</html>

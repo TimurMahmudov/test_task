@@ -1,0 +1,9 @@
+                <ul>
+                    {% for sub in subs %}
+                        <li>
+                            <a href="{% url "menu:category" sub.id %}">
+                                {{ sub.title }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>

@@ -1,0 +1,20 @@
+{% load filter_active %}
+    {% for super_cat in super_cats %}
+        <li>
+            <a {% if cat == super_cat %} class="active_category" {% endif %} href="{% url "menu:category" super_cat.id %}">
+                {{ super_cat.title }}
+            </a>
+        </li>
+        {% if cat == super_cat %}
+            {% include "include/sub_categories.html" %}
+        {% elif cat.super_category == super_cat %}
+            <ul>
+                <li>
+                    <a class="active_category" href="{% url "menu:category" cat_id %}">
+                        {{ cat.title }}
+                    </a>
+                </li>
+                {% include "include/sub_categories.html" %}
+            </ul>
+        {% endif %}
+    {% endfor %}
